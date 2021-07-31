@@ -35,9 +35,9 @@ const Categories = () => {
               <div className='hr'></div>
               <h3>Customer Service</h3>
               <h3 className='upper'>Contact us</h3>
-              <p>Mon-Fri 9:00-18:00
-                  decor@gmail.com
-                  Phone +48 789 908 546
+              <p>Mon-Fri 9:00-18:00 <br/>
+                  decor@gmail.com <br/>
+                  Phone +48 789 908 546 <br/>
                   </p>
               
               
@@ -117,18 +117,25 @@ display:block;
 .fillers{
     display:grid;
     grid-template-columns:1fr;
-    
+    display:flex;
+    justify-content:center;
     margin-bottom:2rem;
     
 }
 .filler{
-    margin: 0 2rem;
+    margin: 0 3rem;
     width:90vw;
     display:flex;
     justify-content:center;
-   align-items:center;
+ 
     flex-direction:column;
 }
+    .hr{
+        background:var(--dark-olive-green);
+        width:70px;
+        height:2px;
+        margin-bottom:5px;
+    }
     
 h3{
   font-size:30px;  

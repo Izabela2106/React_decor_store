@@ -122,10 +122,12 @@ object-fit:cover;
     display: flex;
     align-items: center;
     position: relative;
+
     svg {
       height: 1.6rem;
       margin-left: 5px;
     }
+
   }
   .cart-value {
     position: absolute;
@@ -162,8 +164,9 @@ width:20vw;
 display:flex;
 flex-direction:row;
 font-size:2rem;
-justify-content:center;
-align-items:center:
+justify-content:flex-end;
+align-items:center;
+margin-right:2.5vw;
 
 
 }
