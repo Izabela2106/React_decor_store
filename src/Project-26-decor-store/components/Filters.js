@@ -77,7 +77,17 @@ const Wrapper = styled.section`
 .filters{
 display:flex;
 flex-direction:row;
-justify-content:center;
+justify-content:space-between;
+margin: 2rem 1rem;
+
+@media screen and (max-width:800px){
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  .filter{
+    margin:1rem 0;
+  }
+}
 
 }
 
@@ -108,9 +118,7 @@ display:grid;
 grid-template-columns:repeat(6,1fr);
 cursor:pointer;
 }
-.filter{
-margin: 3rem 7rem;
-}
+
 .filters-header{
 display:flex;
 flex-direction:row;

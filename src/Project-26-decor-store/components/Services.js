@@ -62,13 +62,19 @@ p{
 margin:0 3rem;
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
 .service{
 margin: 3rem 0;
+flex-direction:column;
+}
+p{
+  order:2;
+  margin-top:1rem;
 }
 
-  svg.logo{
-font-size:400px;
+path{
+height:30rem;
+width:30rem;
 margin: 0 3rem;
 }
      }

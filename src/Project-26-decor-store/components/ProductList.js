@@ -40,6 +40,10 @@ font-size:2rem;
 cursor:pointer;
 display:flex;
 align-items:center;
+
+@media screen and (max-width:768px){
+    display:none;
+}
 }
 
 .sort{

@@ -36,10 +36,10 @@ const CartItem = ({name,id,price,amount,image,inventory,color}) => {
       <div className="color" style={{background:color}}></div>
       </div>
          </div>
-      <h5>${price.raw}</h5>
+      <h5 className='price'>${(price.raw).toFixed(2)}</h5>
           <AmountButtons amount={amount} increase={increase} decrease={decrease} />
          
-            <h5>${price.raw*amount}</h5>
+            <h5 className='subtotal'>${(price.raw*amount).toFixed(2)}</h5>
             <button className="btn" onClick={()=>removeFromCart(id)}>remove</button>
             
 
@@ -52,11 +52,24 @@ const CartItem = ({name,id,price,amount,image,inventory,color}) => {
 
 const Wrapper = styled.article`
   .subtotal {
-    display: none;
+    width:4rem;
   }
   .price {
     display: none;
   }
+  @media screen and (max-width:776px){
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+
+  }
+  @media screen and (max-width:400px){
+    padding:1rem 0;
+    border: 1px solid black;
+  }
+
+
+
 .color{
 width:1rem;
 height:1rem;
@@ -82,6 +95,8 @@ display:flex;
 justify-content:center;
 flex-direction:row;
 align-items:center;
+width:7rem;
+
 img{
 height:80px;
 width:80px;
@@ -90,6 +105,10 @@ border-radius: var(--radius);
 object-fit: cover;
 margin:1rem;
 align-self:center;
+}
+@media screen and (max-width:400px){
+  display:flex;
+  flex-direction:column;
 }
 }
 

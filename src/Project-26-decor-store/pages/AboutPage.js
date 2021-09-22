@@ -32,6 +32,26 @@ flex-direction:column;
 display:flex;
 flex-direction:row;
 margin-top:1rem;
+
+@media screen and (max-width:900px){
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  .image{
+    margin-left:0;
+  }
+  .text{
+    margin:2rem 0;
+  }
+}
+@media screen and (max-width:900px){
+  img{
+    width:90vw;
+  }
+}
+
+
+
 }
 .image{
 margin-left:2rem;
@@ -40,7 +60,7 @@ margin-left:2rem;
 margin: 0 3rem;
 }
   img {
-    min-width:400px;
+    min-width:200px;
     display: block;
     border-radius: var(--radius);
     height: 500px;

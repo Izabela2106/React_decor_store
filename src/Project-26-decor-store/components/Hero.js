@@ -42,8 +42,12 @@ background-size:cover;
 }
 
 .goShopbtn{
-height:2rem;
-text-align:center;
+height:5rem;
+width:12rem;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:1.5rem;
 }
 
  @media (min-width: 992px){
