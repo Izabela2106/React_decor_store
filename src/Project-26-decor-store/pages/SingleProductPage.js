@@ -2,13 +2,11 @@ import React, { useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
-import { formatPrice } from '../utils/helpers'
 import {
   Loading,
   Error,
   ProductImages,
   AddToCart,
-  Stars,
   PageHero,
 } from '../components'
 import styled from 'styled-components'
@@ -22,10 +20,24 @@ const SingleProductPage = () => {
     
     
     const {id}=useParams();
-    
+    const history=useHistory();
+
+
+
     useEffect(()=>{
         fetchSingleProduct(id);
     },[id])
+
+    useEffect(() => {
+      if (error) {
+        setTimeout(() => {
+          history.push('/')
+        }, 3000)
+      }
+      // eslint-disable-next-line
+    }, [error])
+
+
     
      if(loading){
         return <Loading/>
@@ -44,7 +56,7 @@ const SingleProductPage = () => {
   return <>
       <PageHero title={name} product/>
       <Wrapper className="section-center">
-      <div >
+      
       
     <div className="center">
       <ProductImages assets={assets}/>
@@ -61,7 +73,7 @@ const SingleProductPage = () => {
           </div>
       
       </div>
-      </div>
+      
       
       </Wrapper>
                 </>
@@ -69,12 +81,17 @@ const SingleProductPage = () => {
 
 const Wrapper = styled.main`
 display:flex:
-justify-content:center;
-width:90vw;
+width:80vw;
 .center{
 display:flex;
 flex-direction:row;
+justify-content:space-between;
+  align-items:center;
+@media screen and (max-width:1050px){
+  flex-direction:column;
 }
+}
+
 
   .product-center {
     display: grid;
@@ -91,10 +108,14 @@ flex-direction:row;
   .info {
     text-transform: capitalize;
     width: 500px;
+    margin-top:4rem;
     display: flex;
     flex-direction:column;
     span {
       font-weight: 700;
+    }
+    @media screen and (max-width:1050px){
+      width:90vw;
     }
   }
 

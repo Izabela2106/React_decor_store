@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState}from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
-import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
+  const [activeColor,setActiveColor]=useState(null);
     const {all_products,filters,updateFilters,clearFilters}=useFilterContext();
     let categories=all_products.map(item=>{
         return item.categories[0].name;
@@ -15,7 +14,7 @@ const Filters = () => {
    let colors=all_products.map(item=>{
         return item.variant_groups[0].options;
     })
-    colors=colors.flat(1)
+    colors=colors.flat(1);
     
     colors=colors.map(item=>{
         return item.name;
@@ -52,11 +51,12 @@ colors=new Array(...colors);
           <div className="filter">
                 <h5>Colors</h5>
             <div className="colors">
-         <button name='color' className="color" data-color='all' onClick={updateFilters}>all</button>
+         <button name='color' className="color" data-color='all' 
+         onClick={(e)=>{updateFilters(e);setActiveColor(e.target.getAttribute('data-color'));if(e.target.getAttribute('data-color') ==='all'){;setActiveColor(null)}}}>all</button>
 
              {colors.map((color,index)=>{
-
-              return <button name='color' data-color={color} className='color' onClick={updateFilters}key={index} style={{background:color}}></button>
+              return <button name='color' data-color={color} className={color === activeColor ? "color active" : 'color'}
+               onClick={(e)=>{updateFilters(e);setActiveColor(e.target.getAttribute('data-color'));if(e.target.getAttribute('data-color') ==='all'){;setActiveColor(null)}}} key={index} style={{background:color}}></button>
              })}
              </div>
               </div>
@@ -90,6 +90,7 @@ border-radius:50%;
 margin:2px;
 }
 
+
 .cat{
 
 display:grid;
@@ -113,10 +114,19 @@ margin: 3rem 7rem;
 .filters-header{
 display:flex;
 flex-direction:row;
+align-items:center;
 justify-content:space-around;
 }
 h5{
 text-align:center;
+}
+
+
+form{
+  display:flex;
+flex-direction:row;
+aling-items:center;
+justify-content:space-around;
 }
 
 
@@ -132,7 +142,7 @@ text-align:center;
     padding: 0.5rem;
     background: var(--clr-grey-10);
     border-radius: var(--radius);
-    border-color: transparent;
+    border-color: black;
     letter-spacing: var(--spacing);
   }
   .search-input::placeholder {
@@ -152,7 +162,7 @@ text-align:center;
     cursor: pointer;
   }
   .active {
-    border-color: var(--clr-grey-5);
+    border: 3px solid var(--clr-grey-5);
   }
   .company {
     background: var(--clr-grey-10);
@@ -206,7 +216,7 @@ text-align:center;
   .clear-btn {
     background: var(--clr-red-dark);
     color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
+    padding:  0.5rem;
     border-radius: var(--radius);
   }
   @media (min-width: 768px) {

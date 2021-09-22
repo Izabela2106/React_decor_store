@@ -83,7 +83,7 @@ if(action.type==="UPDATE_SORT"){
         text:'',
         category:"all",
         color:"all",
-        price:state.filters.max_price,
+        price:state.filters.min_price,
        
     }}
     }
@@ -139,7 +139,7 @@ if(action.type==="UPDATE_SORT"){
 
 
     
-  return state
+
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 

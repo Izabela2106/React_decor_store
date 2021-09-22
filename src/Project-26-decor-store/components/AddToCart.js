@@ -9,7 +9,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa'
 
 const AddToCart = ({product}) => {
     
-              const {variant_groups,name,inventory,price,id,media}=product;
+    const {variant_groups,name,inventory,price,id,media}=product;
     const {addToCart}=useCartContext();
 
    const [color,setColor]=useState(variant_groups[0].options[0].name);
@@ -41,7 +41,6 @@ const AddToCart = ({product}) => {
     }
     const handleAddToCart=()=>{
         let id2=id+color;
-        console.log(id2);
         addToCart({id2,name,color,price,itemsNumber,media,inventory});
     }
     
@@ -72,12 +71,17 @@ border-radius:50%;
 margin:2px;
 border:none;
 cursor:pointer;
-border: 2px solid black;
+@media screen and (max-width:400px){
+  width: 2.5rem;
+height: 2.5rem;
+}
+
 
 
 }
 .active{
-opacity:0.5;
+opacity:0.4;
+
 }
 
 
@@ -107,14 +111,16 @@ font-weight:bold;
 .cart-details{
 display:flex;
 flex:direction:row;
-justify-content:space-around;
+justify-content:space-between;
+
 
 }
 
   .colors {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content:center;
+    
     span {
       text-transform: capitalize;
       font-weight: 700;
@@ -122,6 +128,7 @@ justify-content:space-around;
     div {
       display: flex;
     }
+    
   }
   .color-btn {
     display: inline-block;
@@ -140,6 +147,7 @@ justify-content:space-around;
       font-size: 0.75rem;
       color: var(--clr-white);
     }
+    
   }
   
   .btn-container {

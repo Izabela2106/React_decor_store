@@ -116,17 +116,29 @@ display:block;
     
 .fillers{
     display:grid;
-    grid-template-columns:1fr;
     display:flex;
-    justify-content:center;
+    align-items:flex-start;
     margin-bottom:2rem;
+    justify-content:center;
+
+    @media screen and (max-width:1000px){
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+
+        .filler{
+            width:90vw;
+        }
+    }
     
 }
 .filler{
     margin: 0 3rem;
-    width:90vw;
+    width:150px;
     display:flex;
     justify-content:center;
+    align-items:center;
  
     flex-direction:column;
 }
@@ -139,6 +151,7 @@ display:block;
     
 h3{
   font-size:30px;  
+  text-align:center;
 }
     
 h3.upper{

@@ -160,7 +160,6 @@ object-fit:cover;
   }
 
 .nav-footer{
-width:20vw;
 display:flex;
 flex-direction:row;
 font-size:2rem;
